@@ -1,6 +1,5 @@
 {
-  "name": "resume",
-  "name": "resume",
+  "name": "resumepet",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -37,6 +36,5 @@
   },
 
   "devDependencies": {
-    
   }
 }
