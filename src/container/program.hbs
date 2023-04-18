@@ -1,0 +1,85 @@
+<div>
+    {{#with program}}
+    <section>
+        <div>
+            {{#with excursion}}
+            <h1>{{name}}</h1>
+            {{#with location}}
+            <h2>{{city}}, {{country}}</h2>
+            {{/with}}
+            <h3>Date: ({{date}})</h3>
+        </div>
+        <br>
+        <hr>
+        <div>{{> title data= "Program" big=true}}</div>
+        <ul>
+            {{#each program}}
+            <li>
+                <div><b>{{name}},</b> ({{type}})</div>
+                <br>
+                <div>Duration: {{duration}} </div>
+                <div>{{> title data= "Details" }}</div>
+            </li>
+
+            {{#with details}}
+            {{#with museum}}
+            <div><b>Name: {{name}}</b></div>
+            <br>
+            {{#with location}}
+            <div>
+                <address>Location: {{address}}, {{city}}, {{country}}</address>
+            </div>
+            {{/with}}
+            <div>{{> title data= "Exhibits" }}</div>
+            <ul>
+                {{#each exhibits}}
+                <li>
+                    <div><cite>"{{name}}",</cite> {{artist}}</div>
+                    <br>
+                    <div>Description: <q>{{description}}</q></div>
+                    <br>
+                    <div>{{#if audio_guide}} <b>(Audio guide)</b> {{/if}}</div>
+                    <br>
+                </li>
+                {{/each}}
+                {{/with}}
+                <div>
+                    {{#with venue}}
+                    <div>Name: {{name}}</div>
+                    <b></b>
+                    {{#with location}}
+                    <div>
+                        <address>Location: {{address}}, {{city}}, {{country}}</address>
+                    </div>
+                    {{/with}}
+                    {{/with}}
+                </div>
+                <br>
+                <ul>
+                    {{#each performers}}
+                    <br>
+                    <li>
+                        <div><b>Performer name: {{name}}</b>, ({{type}})</div>
+                    </li>
+                    {{/each}}
+                </ul>
+                <br>
+                <div>{{> title data= "Guide" }}</div>
+                {{#with guide}}
+                <div><b>Name: {{name}}</b></div>
+                <br>
+                <div>Language: {{language}}</div>
+                <br>
+                <div>Rating: {{rating}}</div>
+
+                <br>
+                <br>
+                {{/with}}
+                {{/with}}
+            </ul>
+            {{/each}}
+            {{/with}}
+</div>
+</section>
+{{/with}}
+</div>
