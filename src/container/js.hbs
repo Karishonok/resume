@@ -1,0 +1,43 @@
+<div>
+    <section>
+        {{> title data= name big=true}}
+        <def>{{description}}</def>
+    </section>
+    <section>
+        {{> title data= "History"}}
+        {{#with history}}
+        <div>Year: {{year}}</div>
+        <br>
+        <div>Founder: {{founder}}</div>
+        {{/with}}
+    </section>
+    <section>
+        {{> title data="Types"}}
+        {{> js parameter=types}}
+        <br>
+        {{> title data= "Syntax"}}
+        {{#each syntax}}
+        <b>{{@key}}</b>
+        {{> js parameter=this}}
+        {{/each}}
+        <br>
+        {{> title data="Features"}}
+        {{> js parameter=features}}
+        <br>
+        {{> title data="Libraries"}}
+        {{>js parameter=libraries}}
+        <br>
+        {{> title data="Tools"}}
+        {{>js parameter=tools}}
+    </section>
+    <section>
+        {{> title data= "Community"}}
+        <ul>
+            {{#each community}}
+            <li>
+                <b>{{name}}</b> <em>({{type}})</em>
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+</div>
