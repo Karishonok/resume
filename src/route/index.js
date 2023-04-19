@@ -465,10 +465,8 @@ router.get('/person', function (req, res) {
 
 router.get('/car', function (req, res) {
   // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('car', {
-    layout: 'bio',
+    layout: 'basic',
     make: 'Toyota',
     model: 'Camry',
     year: 2022,
