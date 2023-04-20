@@ -1,3 +1,62 @@
 <div>
-    lalal
+    <section>
+        {{> title data=name big=true}}
+        <br>
+        <div>{{description}}</div>
+        <br>
+        <div>Price: ${{price}}</div>
+        <br>
+        <div>Category: {{category}}</div>
+    </section>
+    <section>
+        {{> title data= "Features" big=true}}
+        <ul>
+            {{#with features}}
+            {{#with processor}}
+            <li>Processor: {{brand}} {{model}} ({{speed}} GHz {{cores}} cores {{cache}} cache)</li>
+            {{/with}}
+            {{#with memory}}
+            <li>Memory: {{type}} {{size}} ({{speed}})</li>
+            {{/with}}
+            {{#with storage}}
+            <li>Storage: {{size}} {{type}}</li>
+            {{/with}}
+            {{#with display}}
+            <li>Display: {{size}} {{technology}} ({{resolution}}, {{color_space}} color space, {{brightness}}
+                brightness,
+                {{refresh_rate}} refresh rate )</li>
+            {{/with}}
+            {{#with graphics}}
+            <li>Graphics: {{brand}} {{model}} ({{memory}})</li>
+            {{/with}}
+            {{#each ports}}
+            <ul>
+                <li>Port: {{type}} ({{count}})</li>
+                <ul>
+                    {{#each features}}
+                    <li>
+                        <div>{{this}}</div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </ul>
+            {{/each}}
+            {{#with battery}}
+            <li>Battery: {{type}} ({{capacity}}, {{life}})</li>
+            {{/with}}
+            <li>Weight: {{weight}}</li>
+            {{#with dimensions}}
+            <li>Dimensions: {{height}} H x {{width}} W x {{depth}} D</li>
+            {{/with}}
+            <li>Operating system: {{operating_system}}</li>
+            <ul>
+                {{#each accessories}}
+                <li>
+                    <div>{{name}} - ${{price}}</div>
+                </li>
+                {{/each}}
+            </ul>
+            {{/with}}
+        </ul>
+    </section>
 </div>
