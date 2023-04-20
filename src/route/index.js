@@ -220,7 +220,7 @@ router.get('/work', function (req, res) {
 router.get('/education', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('education', {
-    layout: 'basic',
+    layout: 'big',
     // ↙ сюди вводимо JSON дані
 
     page: {
@@ -468,7 +468,7 @@ router.get('/car', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('car', {
-    layout: "basic"
+    layout: 'basic',
     make: 'Toyota',
     model: 'Camry',
     year: 2022,
@@ -562,7 +562,7 @@ router.get('/car', function (req, res) {
 })
 
 // ================================================================
-    
+
 router.get('/web', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('web', {
@@ -864,7 +864,7 @@ router.get('/mac', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('mac', {
-    layout: "basic",
+    layout: 'basic',
     name: 'Apple MacBook Pro',
     description: 'The ultimate notebook for power users',
     price: 1999.99,
@@ -947,7 +947,6 @@ router.get('/mac', function (req, res) {
 })
 
 // ================================================================
-
 
 // Підключаємо роутер до бек-енду
 module.exports = router
