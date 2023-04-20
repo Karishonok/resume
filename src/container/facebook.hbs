@@ -31,7 +31,7 @@
                     <br>
                     <ul>
                         {{#each mutual_friends}}
-                        <div>Mutual friends:</div>
+                        <div>Mutual friends</div>
                         <br>
                         <li><b>{{name}}</b></li>
                         <br>
@@ -43,11 +43,34 @@
                     </ul>
                     {{/each}}
                 </ul>
-                {{/each}}
+                <div>
+                    <h3>{{#if groups}} Groups {{/if}}</h3>
+                </div>
+                <ul>
+                    {{#each groups}}
+                    <li>{{name}}</li>
+                    <br>
+                    <div><dfn>{{description}}</dfn></div>
+                    <br>
+                    <div><b>Members</b></div>
+                    {{#each members}}
+                    <ul>
+                        <br>
+                        <li><b>{{name}}</b></li>
+                        <br>
+                        <div>Gender: {{gender}}</div>
+                        <br>
+                        <div>Age: {{age}}</div>
+                        <br>
+                    </ul>
+                    {{/each}}
+                    {{/each}}
+                </ul>
+            </ul>
+            {{/each}}
             </ul>
             <section>
-                <div><b>Groups</b></div>
-                <br>
+                <h3>{{#if groups}} Groups {{/if}}</h3>
                 <ul>
                     {{#each groups}}
                     <li>{{name}}</li>
