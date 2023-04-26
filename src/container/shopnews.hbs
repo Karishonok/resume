@@ -1,0 +1,23 @@
+<div class="row g-2">
+    {{> breadcrumb}}
+    {{#with newsData}}
+    <div class="col-12">
+        <div>
+            <img class="card-img-top" src="{{photo}}">
+        </div>
+        {{#with head}}
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{heading}}</h4>
+                <p>{{description}}</p>
+                {{/with}}
+                {{#each body}}
+                <h5>{{title}}</h5>
+                <p>{{text}}</p>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    {{/with}}
+    <div class="row g-2">{{> shoppost}}</div>
+    {{> shopaction}}

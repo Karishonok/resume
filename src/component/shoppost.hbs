@@ -1,0 +1,16 @@
+{{#with newsOtherBlock}}
+<div class="pt-4 pb-2">
+    <h4 class="text-center">{{title}}</h4>
+</div>
+{{#each cards}}
+<div class="col-3 mb-5 px-1">
+    <div class="card text-bg-dark">
+        <div class="card-header">{{title}} <span class="badge text-bg-danger">{{#if isTop}}Топ{{/if}}</span>
+            <span class="badge text-bg-success">{{#if isNew}}Нова {{/if}}</span>
+        </div>
+        <p class="card-body">{{description}}</p>
+    </div>
+</div>
+{{/each}}
+{{/with}}
+<hr>
