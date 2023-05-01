@@ -4,7 +4,7 @@
             <h2 class="my-5">{{header}}</h2>
         </div>
         <div class="row">
-            <div class="col-4">
+            <div class="col-5">
                 {{#with contacts_data}}
                 <h4>{{title}}</h4>
             </div>
@@ -20,14 +20,14 @@
                 {{#with form}}
                 {{#with input}}
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         {{#with surname}}
                         <label class="label-form">{{label}}</label>
                         <input placeholder="{{placeholder}}" class="form-control">
                         <div class="form-text">{{caption}}</div>
                         {{/with}}
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         {{#with name}}
                         <label class="label-form">{{label}}</label>
                         <input placeholder="{{placeholder}}" class="form-control">
@@ -36,14 +36,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         {{#with phone}}
                         <label class="label-form">{{label}}</label>
                         <input placeholder="{{placeholder}}" class="form-control">
                         <div class="form-text">{{caption}}</div>
                         {{/with}}
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         {{#with email}}
                         <label class="label-form">{{label}}</label>
                         <input placeholder="{{placeholder}}" class="form-control">
@@ -121,14 +121,14 @@
             {{#with contact}}
             <h2>{{title}}</h2>
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     {{#with surname}}
                     <label class="form label">{{label}}</label>
                     <input placeholder="{{placeholder}}" class="form-control">
                     <div class="form-text">{{caption}}</div>
                     {{/with}}
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     {{#with name}}
                     <label class="form label">{{label}}</label>
                     <input placeholder="{{placeholder}}" class="form-control">
@@ -137,14 +137,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     {{#with phone}}
                     <label class="form label">{{label}}</label>
                     <input placeholder="{{placeholder}}" class="form-control">
                     <div class="form-text">{{caption}}</div>
                     {{/with}}
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     {{#with email}}
                     <label class="form label">{{label}}</label>
                     <input placeholder="{{placeholder}}" class="form-control">
@@ -177,9 +177,7 @@
                 <select class="form-select form-select-lg">
                     <option selected>{{placeholder}}</option>
                     {{#each options}}
-                    <option value="1">{{text}}</option>
-                    <option value="2">{{text}}</option>
-                    <option value="3">{{text}}</option>
+                    <option value={{value}}>{{text}}</option>
                     {{/each}}
                 </select>
                 {{/with}}
@@ -190,7 +188,7 @@
                 <select class="form-select form-select-sm">
                     <option selected>{{placeholder}}</option>
                     {{#each options}}
-                    <option>{{text}}</option>
+                    <option value={{value}}>{{text}}</option>
                     {{/each}}
                 </select>
                 {{/with}}
@@ -262,53 +260,54 @@
     </div>
     {{/with}}
     <div class="col-4">
-        <div class="card">
-            <div class="card-body">
-                {{#each action_block}}
-                <div class="my-1 flex-column text-light">
-                    {{#if isSuccess}}<button class="btn btn-success">
-                        {{text}}</button>{{/if}}
-                    {{#if isDanger}}<button class="btn btn-danger">{{text}}</button>{{/if}}
-                    {{#if isInfo}}<button class="btn btn-info text-light">{{text}}</button>{{/if}}
-                </div>
-                {{/each}}
-            </div>
-        </div>
-        <div class="card">
-            <div>
-                {{#with total}}
-                <h5>{{title}}</h5>
-                <ul class="list-group list-group-flush">
-                    {{#each item_list}}
-                    <li class="list-group-item">
-                        <div>{{name}}: {{price}}</div>
-                    </li>
+        <div class="row">
+            <div class="mt-5 mb-3 card">
+                <div class="card-body">
+                    {{#each action_block}}
+                    <div class="my-1 flex-column text-light">
+                        {{#if isSuccess}}<button class="btn btn-success">
+                            {{text}}</button>{{/if}}
+                        {{#if isDanger}}<button class="btn btn-danger">{{text}}</button>{{/if}}
+                        {{#if isInfo}}<button class="btn btn-info text-light">{{text}}</button>{{/if}}
+                    </div>
                     {{/each}}
-                    {{#each additional_info}}
-                    <li class="list-group-item">
-                        <div>{{text}}: {{value}}</div>
-                    </li>
-                    {{/each}}
-                    {{#with total_price}}
-                    <li class="list-group-item">
-                        <div>{{text}}: {{value}}</div>
-                    </li>
-                    {{/with}}
-                </ul>
-                {{#each button}}
-                <div class="my-2">
-                    {{#if isPrimary}}<button class="btn btn-primary">
-                        {{text}}</button>
-                    {{/if}}
                 </div>
-                <div class="my-2">
-                    {{#if isOutline}}<button class="btn btn-outline-primary">
-                        {{text}}</button>
-                    {{/if}}
-                </div>
-                {{/each}}
             </div>
-            {{/with}}
+            <div class="card">
+                <div>
+                    {{#with total}}
+                    <h5>{{title}}</h5>
+                    <ul class="list-group list-group-flush">
+                        {{#each item_list}}
+                        <li class="list-group-item">
+                            <div>{{name}}: {{price}}</div>
+                        </li>
+                        {{/each}}
+                        {{#each additional_info}}
+                        <li class="list-group-item">
+                            <div>{{text}}: {{value}}</div>
+                        </li>
+                        {{/each}}
+                        {{#with total_price}}
+                        <li class="list-group-item">
+                            <div>{{text}}: {{value}}</div>
+                        </li>
+                        {{/with}}
+                    </ul>
+                    {{#each button}}
+                    <div class="my-2">
+                        {{#if isPrimary}}<button class="btn btn-primary">
+                            {{text}}</button>
+                        {{/if}}
+                    </div>
+                    <div class="my-2">
+                        {{#if isOutline}}<button class="btn btn-outline-primary">
+                            {{text}}</button>
+                        {{/if}}
+                    </div>
+                    {{/each}}
+                </div>
+                {{/with}}
+            </div>
         </div>
     </div>
-</div>
