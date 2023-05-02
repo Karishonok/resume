@@ -1,9 +1,11 @@
 <div class="col-12">
-    <div class="my-4 ms-3">
+    <div class="my-4">
         <ol class="breadcrumb">
             {{#each breadcrumb}}
             <li class="breadcrumb-item">
-                <a href="{{url}}">{{#if url}}{{name}}{{/if}}</a>
+                {{#if url}}<a href="{{url}}">{{name}}</a>
+                {{else}}<span>{{name}}</span>
+                {{/if}}
             </li>
             {{/each}}
         </ol>
