@@ -1,46 +1,53 @@
-<div>
-    <h1>{{name}}</h1>
-    <h3>Birth date - {{birthdate}} ({{birthplace}})</h3>
-    <h3>Death date - {{deathdate}} ({{deathplace}})</h3>
-    <p>Nationality: {{nationality}}</p>
-    <p>Occupation: "{{occupation}}"</p>
-    <b>Known for:</b>
-    <div>
+<div class="row px-3">
+    <div class="card bg-light col-10 my-5">
+        <div class="card-body">
+            <h1>{{name}}</h1>
+            <h3>Birth date - {{birthdate}} ({{birthplace}})</h3>
+            <h3>Death date - {{deathdate}} ({{deathplace}})</h3>
+        </div>
+        <p class="mx-2">Nationality: {{nationality}}</p>
+        <p class="mx-2">Occupation: "{{occupation}}"</p>
+    </div>
+    <div class="col-5">
+        <b>Known for:</b>
         <ul>
             {{#each known_for}}
             <li>"{{this}}"</li>
             {{/each}}
         </ul>
     </div>
-    <br>
     <hr>
     <section>
-        <div>{{> title data="Education" big=true}}</div>
-        <div>
-            <ul>
-                {{#each education}}
-                <li>
-                    <div><b>Degree:</b> {{degree}}</div>
-                    <br>
-                    <div><b>Field:</b> {{field}}</div>
-                    <br>
-                    <div>{{institution}}, {{year}}</div>
-                </li>
-                {{/each}}
-            </ul>
-        </div>
-        <br>
-        <div>{{> title data="Notable publications"}}</div>
-        <div>
-            <ul>
-                {{#each notable_publications}}
-                <br>
-                <li>
-                    <div><cite><strong>"{{title}}",</strong></cite> ({{year}})</div>
-                    <div><cite>"{{publisher}}"</cite></div>
-                </li>
-                {{/each}}
-            </ul>
+        <div class="row mt-3">
+            <div class="col-6">
+                <div>{{> title data="Education" big=true}}</div>
+                <ul>
+                    {{#each education}}
+                    <li>
+                        <div><b>Degree:</b> {{degree}}</div>
+                        <br>
+                        <div><b>Field:</b> {{field}}</div>
+                        <br>
+                        <div>{{institution}}, {{year}}</div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <br>
+            <div class="col-6">
+                <div>{{> title data="Notable publications"}}</div>
+                <div>
+                    <ul>
+                        {{#each notable_publications}}
+                        <br>
+                        <li>
+                            <div><cite><strong>"{{title}}",</strong></cite> ({{year}})</div>
+                            <div><cite>"{{publisher}}"</cite></div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
         </div>
         <br>
         <div>{{> title data="Partners"}}</div>
@@ -55,40 +62,41 @@
                 {{/each}}
             </ul>
         </div>
-        <br>
-        <div>{{> title data="Awards"}}</div>
-        <div>
-            <ul>
-                {{#each awards}}
-                <li>
-                    <div><strong>"{{title}}"</strong>, ({{year}}) </div>
-                    <br>
-                    <div>
+        <div class="col-5 my-5 bg-success">
+            <div>{{> title data="Awards"}}</div>
+            <div>
+                <ul>
+                    {{#each awards}}
+                    <li>
+                        <div><strong>"{{title}}"</strong>, ({{year}}) </div>
                         <q>{{description}}</q>
-                    </div>
-                </li>
-                {{/each}}
-            </ul>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
         <br>
-        <div>{{> title data="Influences"}}</div>
-        <div>
-            <ul>
-                {{#each influences}}
-                <br>
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
-        </div>
-        <br>
-        <div>{{> title data="Influenced"}}</div>
-        <div>
-            <ul>
-                {{#each influenced}}
-                <br>
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
+        <div class="row mt-3">
+            <div class="col-6">
+                <div>{{> title data="Influences"}}</div>
+                <div>
+                    <ul>
+                        {{#each influences}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6">
+                <div>{{> title data="Influenced"}}</div>
+                <div>
+                    <ul>
+                        {{#each influenced}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
         </div>
         <br>
         <div>{{> title data="Quotes"}}</div>

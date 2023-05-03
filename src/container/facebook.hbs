@@ -1,9 +1,9 @@
-<div>
-    <section>
+<div class="row p-3">
+    <section class="mt-0">
         {{> title data= "Users:" big=true}}
     </section>
     <section>
-        <div>
+        <div class="card col-6">
             <ol>
                 {{#each users}}
                 <li>
@@ -87,7 +87,6 @@
                             </ul>
                             {{/each}}
                             {{/each}}
-                            <hr>
                         </ul>
                     </section>
                     {{/each}}

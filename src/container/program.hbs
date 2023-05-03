@@ -1,7 +1,7 @@
-<div>
+<div class="row p-4">
     {{#with program}}
     <section>
-        <div>
+        <div class="text-bg-dark">
             {{#with excursion}}
             <h1>{{name}}</h1>
             {{#with location}}
@@ -9,76 +9,69 @@
             {{/with}}
             <h3>Date: ({{date}})</h3>
         </div>
-        <br>
         <hr>
-        <div>{{> title data= "Program" big=true}}</div>
-        <ul>
-            {{#each program}}
-            <li>
-                <div><b>{{name}},</b> ({{type}})</div>
-                <br>
-                <div>Duration: {{duration}} </div>
-                <div>{{> title data= "Details" }}</div>
-            </li>
-
-            {{#with details}}
-            {{#with museum}}
-            <div><b>Name: {{name}}</b></div>
-            <br>
-            {{#with location}}
-            <div>
-                <address>Location: {{address}}, {{city}}, {{country}}</address>
-            </div>
-            {{/with}}
-            <div>{{> title data= "Exhibits" }}</div>
-            <ul>
-                {{#each exhibits}}
-                <li>
-                    <div><cite>"{{name}}",</cite> {{artist}}</div>
-                    <br>
-                    <div>Description: <q>{{description}}</q></div>
-                    <br>
-                    <div>{{#if audio_guide}} <b>(Audio guide)</b> {{/if}}</div>
-                    <br>
-                </li>
-                {{/each}}
-                {{/with}}
-                <div>
-                    {{#with venue}}
-                    <div>Name: {{name}}</div>
-                    <b></b>
+        <div class="card col-8">
+            <div class="card-body">
+                <div>{{> title data= "Program" big=true}}</div>
+                <ul>
+                    {{#each program}}
+                    <li>
+                        <div class="mt-3 mb-3 text-bg-light"><b>{{name}},</b> ({{type}})</div>
+                        <div>Duration: {{duration}} </div>
+                        <div class="my-3">{{> title data= "Details" }}</div>
+                    </li>
+                    {{#with details}}
+                    {{#with museum}}
+                    <div class="my-2"><b>Name: {{name}}</b></div>
                     {{#with location}}
                     <div>
                         <address>Location: {{address}}, {{city}}, {{country}}</address>
                     </div>
                     {{/with}}
-                    {{/with}}
-                </div>
-                <br>
-                <ul>
-                    {{#each performers}}
-                    <br>
-                    <li>
-                        <div><b>Performer name: {{name}}</b>, ({{type}})</div>
-                    </li>
+                    <div class="my-4">{{> title data= "Exhibits" }}</div>
+                    <ul>
+                        {{#each exhibits}}
+                        <li>
+                            <div class="my-2"><cite>"{{name}}",</cite> {{artist}}</div>
+                            <div>Description: <q>{{description}}</q></div>
+                            <div class="mt-2 mb-3">{{#if audio_guide}} <b>(Audio guide)</b> {{/if}}</div>
+                        </li>
+                        {{/each}}
+                        {{/with}}
+                        <div>
+                            {{#with venue}}
+                            <div>Name: {{name}}</div>
+                            {{#with location}}
+                            <div>
+                                <address>Location: {{address}}, {{city}}, {{country}}</address>
+                            </div>
+                            {{/with}}
+                            {{/with}}
+                        </div>
+                        <ul>
+                            {{#each performers}}
+                            <br>
+                            <li>
+                                <div><b>Performer name: {{name}}</b>, ({{type}})</div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        <br>
+                        <div>{{> title data= "Guide" }}</div>
+                        {{#with guide}}
+                        <div><b>Name: {{name}}</b></div>
+                        <br>
+                        <div>Language: {{language}}</div>
+                        <br>
+                        <div>Rating: {{rating}}</div>
+                        {{/with}}
+                        {{/with}}
+                    </ul>
                     {{/each}}
+                    {{/with}}
                 </ul>
-                <br>
-                <div>{{> title data= "Guide" }}</div>
-                {{#with guide}}
-                <div><b>Name: {{name}}</b></div>
-                <br>
-                <div>Language: {{language}}</div>
-                <br>
-                <div>Rating: {{rating}}</div>
-
-                <br>
-                <br>
-                {{/with}}
-                {{/with}}
-            </ul>
-            {{/each}}
-            {{/with}}
+            </div>
+        </div>
 </div>
 </section>
 {{/with}}
