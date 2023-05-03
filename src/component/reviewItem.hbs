@@ -1,60 +1,54 @@
 <div class="card">
+    {{#with title}}
+    <div class="card-header">
+        <h5>{{userName}}</h5>
+        <p>{{caption}}</p>
+        <p>{{date}}</p>
+    </div>
+    {{/with}}
     <div class="card-body">
-        {{#each reviewList}}
-        <div class="card">
-            {{#with title}}
-            <div class="card-header">
-                <h5>{{userName}}</h5>
-                <p>{{caption}}</p>
-                <p>{{date}}</p>
-            </div>
+        {{#with reviewBody}}
+        <div>
+            {{#with seller}}
+            <p>{{title}}: {{value}}</p>
             {{/with}}
-            <div class="card-body">
-                {{#with reviewBody}}
-                <div>
-                    {{#with seller}}
-                    <p>{{title}}: {{value}}</p>
-                    {{/with}}
-                </div>
-                <div>
-                    {{#with rating}}
-                    <p>{{title}}: {{value}}</p>
-                    {{/with}}
-                </div>
-                <div>
-                    {{#each text}}
-                    <p>{{this}}</p>
-                    {{/each}}
-                </div>
-                <div>
-                    {{#with advantages}}
-                    <b>{{title}}</b>
-                    <p>{{text}}</p>
-                    {{/with}}
-                </div>
-                <div>
-                    {{#with disadvantages}}
-                    <b>{{title}}</b>
-                    <p>{{text}}</p>
-                    {{/with}}
-                </div>
-                <div>
-                    {{#each images}}
-                    <img class="me-2" src="{{this}}">
-                    {{/each}}
-                </div>
-            </div>
         </div>
-        {{#each coments}}
-        <div class="my-4 ms-5 card">
-            <div class="pt-1 pb-0 card-body">
-                <h4>{{userName}}</h4>
-                <p>{{date}}</p>
-                <p>{{text}}</p>
-            </div>
+        <div>
+            {{#with rating}}
+            <p>{{title}}: {{value}}</p>
+            {{/with}}
         </div>
-        {{/each}}
-        {{/with}}
-        {{/each}}
+        <div>
+            {{#each text}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        <div>
+            {{#with advantages}}
+            <b>{{title}}</b>
+            <p>{{text}}</p>
+            {{/with}}
+        </div>
+        <div>
+            {{#with disadvantages}}
+            <b>{{title}}</b>
+            <p>{{text}}</p>
+            {{/with}}
+        </div>
+        <div>
+            {{#each images}}
+            <img class="me-2" src="{{this}}">
+            {{/each}}
+        </div>
     </div>
 </div>
+{{#each coments}}
+<div class="my-4 ms-5 card">
+    <div class="pt-1 pb-0 card-body">
+        <h4>{{userName}}</h4>
+        <p>{{date}}</p>
+        <p>{{text}}</p>
+    </div>
+</div>
+{{/each}}
+{{/with}}
