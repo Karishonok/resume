@@ -78,7 +78,11 @@
         </div>
     </div>
     <div class="col-8">
-        {{> catalogItem}}
+        <div class="row">
+            {{#each goodsList}}
+            {{> catalogItem}}
+            {{/each}}
+        </div>
     </div>
     <div class="my-5">
         {{> shopaction}}
