@@ -1,14 +1,16 @@
-<div>
-    <section>
-        {{> title data=name big=true}}
-        <br>
-        <div>{{description}}</div>
-        <br>
-        <div>Price: ${{price}}</div>
-        <br>
-        <div>Category: {{category}}</div>
+<div class="row p-3">
+    <section class="my-4">
+        <div>{{> title data=name big=true}}</div>
+        <div class="my-2">
+            <div class="my-2">{{description}}</div>
+            <div>Price: ${{price}}</div>
+            <div class="my-2">Category: {{category}}</div>
+        </div>
+        <div>
+            <a href="https://www.ctrs.com.ua/" class="btn btn-primary">Buy</a>
+        </div>
     </section>
-    <section>
+    <section class="card col-10 text-bg-light">
         {{> title data= "Features" big=true}}
         <ul>
             {{#with features}}

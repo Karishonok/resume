@@ -1,36 +1,40 @@
-<div>
+<div class="row p-3">
     {{#with main}}
-    <main>
+    <main class="card">
         <section>
-            {{>title data="All skills" big=true}}
-            <ul>
-                {{#each skills}}
-                <li>
-                    {{name}}
-                    {{#if point includeZero= true}}({{point}}) {{/if}}
+            <div class="card-header mt-1">{{>title data="All skills" big=true}}</div>
+            <div class="card-body">
+                <ul>
+                    {{#each skills}}
+                    <li>
+                        {{name}}
+                        {{#if point includeZero= true}}({{point}}) {{/if}}
 
-                    {{#if isTop}} (top) {{/if}}
+                        {{#if isTop}} (top) {{/if}}
 
-                    {{#unless point includeZero= true}} (не вивчаємо) {{/unless}}
-                    {{#unless point}}
-                    {{#if point includeZero= true}}
-                    (зараз вивчаємо)
-                    {{/if}}
-                    {{/unless}}
-                </li>
-                {{/each}}
-            </ul>
+                        {{#unless point includeZero= true}} (не вивчаємо) {{/unless}}
+                        {{#unless point}}
+                        {{#if point includeZero= true}}
+                        (зараз вивчаємо)
+                        {{/if}}
+                        {{/unless}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
         </section>
-        <section>
-            {{>title data="My hobbies"}}
-            <ol>
-                {{#each hobbies}}
-                <li>
-                    {{name}}
-                    {{#if isMain}} (favourite) {{/if}}
-                </li>
-                {{/each}}
-            </ol>
+        <section class="mt-5">
+            <div class="card-header">{{>title data="My hobbies"}}</div>
+            <div class="card-body">
+                <ol>
+                    {{#each hobbies}}
+                    <li>
+                        {{name}}
+                        {{#if isMain}} (favourite) {{/if}}
+                    </li>
+                    {{/each}}
+                </ol>
+            </div>
         </section>
     </main>
     {{/with}}

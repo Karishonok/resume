@@ -1,36 +1,43 @@
-<div>
-    <section>
+<div class="row p-3">
+    <section class="my-5 text-bg-light">
         {{> title data= name big=true}}
         <def>{{description}}</def>
     </section>
-    <section>
+    <section class="mb-3">
         {{> title data= "History"}}
         {{#with history}}
-        <div>Year: {{year}}</div>
-        <br>
+        <div class="my-2">Year: {{year}}</div>
         <div>Founder: {{founder}}</div>
         {{/with}}
     </section>
     <section>
-        {{> title data="Types"}}
-        {{> js parameter=types}}
-        <br>
-        {{> title data= "Syntax"}}
-        {{#each syntax}}
-        <b>{{@key}}</b>
-        {{> js parameter=this}}
-        {{/each}}
-        <br>
-        {{> title data="Features"}}
-        {{> js parameter=features}}
-        <br>
-        {{> title data="Libraries"}}
-        {{>js parameter=libraries}}
-        <br>
-        {{> title data="Tools"}}
-        {{>js parameter=tools}}
+        <div class="col-6 my-3">
+            {{> title data="Types"}}
+            {{> js parameter=types}}
+        </div>
+        <div class="col-6 my-3">
+            {{> title data= "Syntax"}}
+            {{#each syntax}}
+            <b>{{@key}}</b>
+            {{> js parameter=this}}
+            {{/each}}
+        </div>
+        <div class="row mt-5">
+            <div class="col-4">
+                {{> title data="Features"}}
+                {{> js parameter=features}}
+            </div>
+            <div class="col-4">
+                {{> title data="Libraries"}}
+                {{>js parameter=libraries}}
+            </div>
+            <div class="col-4">
+                {{> title data="Tools"}}
+                {{>js parameter=tools}}
+            </div>
+        </div>
     </section>
-    <section>
+    <section class="my-4 text-bg-light">
         {{> title data= "Community"}}
         <ul>
             {{#each community}}

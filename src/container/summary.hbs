@@ -3,17 +3,19 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 --}}
 
-<div>
+<div class="row p-3">
 	{{#with main}}
 	<main>
 		<section class="mb-5">
 			<div>
 				{{> title data=summary.title big=true}}
 			</div>
-			<div>
-				<p>
-					{{summary.text}}
-				</p>
+			<div class="card text-bg-light">
+				<div class="card-body">
+					<p>
+						{{summary.text}}
+					</p>
+				</div>
 			</div>
 		</section>
 
@@ -22,10 +24,12 @@
 			<div>
 				{{>title data = title}}
 			</div>
-			<div>
-				<p>
-					{{text}}
-				</p>
+			<div class="card text-bg-light">
+				<div class="card-body">
+					<p>
+						{{text}}
+					</p>
+				</div>
 			</div>
 		</section>
 		{{/with}}

@@ -1,29 +1,25 @@
-<div>
+<div class="row p-4">
     {{#with person}}
-    <section>
-        <div>
+    <section class="row">
+        <div class="text-center">
             <h1>{{name}}</h1>
             <h2>Age:{{age}}</h2>
             <h3>Gender: {{gender}}</h3>
         </div>
     </section>
-    <br>
-
-    <div>
+    <div class="text-center mb-3">
         {{#with address}}
         <em>
             <address>{{street}}, {{city}}, {{state}}, {{zip}}, {{country}}</address>
         </em>
         {{/with}}
     </div>
-
-    <br>
     <hr>
     <section>
         <div>
             {{> title data= "Education" big=true}}
         </div>
-        <div>
+        <div class="col-3">
             <ul>
                 {{#each education}}
                 <li>
@@ -40,35 +36,38 @@
             </ul>
         </div>
     </section>
-    <br>
     <hr>
-    <section>
-        <div>{{> title data="Work experience" big=true}}</div>
-        <div>
-            <br>
-            <div>{{#each workExperience}}
-                <div><b>Company:</b> {{company}}</div>
-                <br>
-                <div><b>Position:</b> {{title}} </div>
-                <br>
-                <div><b>Duration: </b>({{startDate}}) - ({{endDate}})</div>
-                <br>
-                <div><b>Responsibilities: </b></div>
+    <section class="row">
+        <div class="card col-5">
+            <div class="card-body">
+                <div>{{> title data="Work experience" big=true}}</div>
                 <div>
-                    <ul>
-                        {{#each responsibilities}}
-                        <li>
-                            <div>{{this}}</div>
-                            <br>
-                        </li>
-                        {{/each}}
-                    </ul>
+                    {{#each workExperience}}
+                    <div><b>Company:</b> {{company}}</div>
+                    <br>
+                    <div><b>Position:</b> {{title}} </div>
+                    <br>
+                    <div><b>Duration: </b>({{startDate}}) - ({{endDate}})</div>
+                    <br>
+                    <div><b>Responsibilities: </b></div>
+                    <div>
+                        <ul>
+                            {{#each responsibilities}}
+                            <li>
+                                <div>{{this}}</div>
+                                <br>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div><b>Year founded: </b>{{year_founded}}</div>
+                    <br>
+                    <div><b>Industry: </b>{{industry}}</div>
                 </div>
-                <div><b>Year founded: </b>{{year_founded}}</div>
-                <br>
-                <div><b>Industry: </b>{{industry}}</div>
-                <br>
-                <br>
+            </div>
+        </div>
+        <div class="card col-7">
+            <div class="card-body">
                 <div>{{> title data= "Employees"}}</div>
                 <div>
                     <ul>
@@ -181,4 +180,12 @@
                                     {{/each}}
                                     {{/each}}
                                     {{/with}}
+                                </ul>
+                            </ul>
+                        </ul>
+                    </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+</div>

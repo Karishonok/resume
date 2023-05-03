@@ -1,115 +1,136 @@
-<div>
-    <section>
+<div class="row pt-3 ps-3">
+    <section class="col-5">
         <h1>{{make}} {{model}} ({{year}})</h1>
         <small>Color: {{color}}</small>
     </section>
     <section>
         {{> title data= "Features" big=true}}
-        {{#with features}}
-        <ul>
-            <li>{{> title data= "Interior"big=true }}</li>
-            <ul>
-                {{#with interior}}
-                {{#with seats}}
-                <li>
-                    Seats: {{material}} {{color}}
-                    {{#if heated}} (heated) {{/if}}
-                    {{#if ventilated}} (ventilated) {{/if}}
-                </li>
-                {{/with}}
-                <br>
-                {{#with dashboard}}
-                <li>
-                    Dashboard: {{material}} ({{color}})
-                    {{#with display}}
-                    {{type}} {{size}} ({{resolution}})
-                    {{#if touchscreen}} (touchscreen) {{/if}}
+        <div class="row">
+            <div class="card col-4">
+                <div class="card-body">
+                    {{#with features}}
+                    <ul>
+                        <li>{{> title data= "Interior"big=true }}</li>
+                        <ul>
+                            {{#with interior}}
+                            {{#with seats}}
+                            <li>
+                                Seats: {{material}} {{color}}
+                                {{#if heated}} (heated) {{/if}}
+                                {{#if ventilated}} (ventilated) {{/if}}
+                            </li>
+                            {{/with}}
+                            <br>
+                            {{#with dashboard}}
+                            <li>
+                                Dashboard: {{material}} ({{color}})
+                                {{#with display}}
+                                {{type}} {{size}} ({{resolution}})
+                                {{#if touchscreen}} (touchscreen) {{/if}}
+                                {{/with}}
+                            </li>
+                            {{/with}}
+                            <br>
+                            {{#with audio}}
+                            <li>
+                                Audio: {{system}} {{speakers}}
+                                {{#if subwoofer}} subwoofer{{/if}}
+                                {{#if bluetooth}} bluetooth {{/if}}
+                                {{#if USB}} USB {{/if}}
+                            </li>
+                            {{/with}}
+                            {{/with}}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="card col-4">
+                <div class="card-body">
+                    <ul>
+                        <li>{{> title data="Exterior" big=true }}</li>
+                        <ul>
+                            {{#with exterior}}
+                            {{#with wheels}}
+                            <li>Wheels: {{size}} {{type}} ({{color}})</li>
+                            {{/with}}
+                            <br>
+                            {{#with headlights}}
+                            <li>Headlights: {{type}} {{brightness}}
+                                {{#if automatic}} (automatic) {{/if}}
+                            </li>
+                            {{/with}}
+                            <br>
+                            {{#with sunroof}}
+                            <li>Sunroof: {{type}} {{size}}
+                                {{#if automatic}} (automatic) {{/if}}
+                            </li>
+                            {{/with}}
+                            {{/with}}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="card col-4">
+                <div class="card-body">
+                    <ul>
+                        <li>{{> title data= "Safety" big=true }}</li>
+                        <ul>
+                            {{#with safety}}
+                            {{#with airbags}}
+                            <li>Airbags: Front- {{front}} Side {{side}} Knee: {{knee}} Rear: {{rear}}</li>
+                            {{/with}}
+                            <br>
+                            {{#with assistance}}
+                            <li>Assistance: {{#if blind_spot_monitoring}} Blind Spot Monitoring {{/if}}
+                                {{#if rear_cross_traffic_alert}} Rear Cross Traffic Alert {{/if}}
+                                {{#if lane_departure_warning}} Lane Departure Warning {{/if}}
+                                {{#if adaptive_cruise_control}} Adaptive Cruise Control {{/if}}
+                                {{#if collision_warning}} Collision Warning {{/if}}
+                            </li>
+                            {{/with}}
+                            {{/with}}
+                        </ul>
+                    </ul>
                     {{/with}}
-                </li>
-                {{/with}}
-                <br>
-                {{#with audio}}
-                <li>
-                    Audio: {{system}} {{speakers}}
-                    {{#if subwoofer}} subwoofer{{/if}}
-                    {{#if bluetooth}} bluetooth {{/if}}
-                    {{#if USB}} USB {{/if}}
-                </li>
-                {{/with}}
-                {{/with}}
-            </ul>
-
-            <li>{{> title data= "Exterior" big=true }}</li>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="card col-6">
+        <div class="card-body">
+            {{> title data= "Engine" big=true}}
             <ul>
-                {{#with exterior}}
-                {{#with wheels}}
-                <li>Wheels: {{size}} {{type}} ({{color}})</li>
-                {{/with}}
+                {{#with engine}}
+                <li>Type: {{type}}</li>
                 <br>
-                {{#with headlights}}
-                <li>Headlights: {{type}} {{brightness}}
-                    {{#if automatic}} (automatic) {{/if}}
-                </li>
-                {{/with}}
+                <li>Displacement: {{displacement}}L</li>
                 <br>
-                {{#with sunroof}}
-                <li>Sunroof: {{type}} {{size}}
-                    {{#if automatic}} (automatic) {{/if}}
-                </li>
+                <li>Horsepower: {{horsepower}} hp</li>
+                <br>
+                <li>Torque: {{torque}} lb-ft</li>
+                <br>
+                {{#with transmission}}
+                <li>Transmission: {{type}}, ({{gears}} gears)</li>
                 {{/with}}
                 {{/with}}
             </ul>
-            <li>{{> title data= "Safety" big=true }}</li>
+        </div>
+    </section>
+    <section class="card col-6">
+        <div class="card-body">
+            {{> title data= "Fuel economy" big=true}}
             <ul>
-                {{#with safety}}
-                {{#with airbags}}
-                <li>Airbags: Front- {{front}} Side {{side}} Knee: {{knee}} Rear: {{rear}}</li>
-                {{/with}}
+                {{#with fuel_economy}}
+                <li>City: {{city}} MPG</li>
                 <br>
-                {{#with assistance}}
-                <li>Assistance: {{#if blind_spot_monitoring}} Blind Spot Monitoring {{/if}}
-                    {{#if rear_cross_traffic_alert}} Rear Cross Traffic Alert {{/if}}
-                    {{#if lane_departure_warning}} Lane Departure Warning {{/if}}
-                    {{#if adaptive_cruise_control}} Adaptive Cruise Control {{/if}}
-                    {{#if collision_warning}} Collision Warning {{/if}}
-                </li>
-                {{/with}}
+                <li>Highway: {{highway}} MPG</li>
+                <br>
+                <li>Combined: {{combined}} MPG</li>
                 {{/with}}
             </ul>
-        </ul>
-        {{/with}}
+        </div>
     </section>
-    <section>
-        {{> title data= "Engine" big=true}}
-        <ul>
-            {{#with engine}}
-            <li>Type: {{type}}</li>
-            <br>
-            <li>Displacement: {{displacement}}L</li>
-            <br>
-            <li>Horsepower: {{horsepower}} hp</li>
-            <br>
-            <li>Torque: {{torque}} lb-ft</li>
-            <br>
-            {{#with transmission}}
-            <li>Transmission: {{type}}, ({{gears}} gears)</li>
-            {{/with}}
-            {{/with}}
-        </ul>
-    </section>
-    <section>
-        {{> title data= "Fuel economy" big=true}}
-        <ul>
-            {{#with fuel_economy}}
-            <li>City: {{city}} MPG</li>
-            <br>
-            <li>Highway: {{highway}} MPG</li>
-            <br>
-            <li>Combined: {{combined}} MPG</li>
-            {{/with}}
-        </ul>
-    </section>
-    <section>
+    <section class="col-5 bg-secondary">
         {{> title data= "Price" big=true}}
         <ul>
             {{#with price}}
